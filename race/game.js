@@ -36,4 +36,36 @@ let game = new Vue({
      }, 2000000, 'linear');
 
    },
- })
+   loop() {
+    this.gameLogic()
+    if (this.player.score < 1000) {
+      this.player.score+=1;
+      this.obstacle.y -= 20
+    }
+    else if (this.player.score < 5000) {
+      this.player.score+=2;
+      this.obstacle.y -= 25
+    }
+    else if(this.player.score < 10000){
+      this.player.score+=3;
+      this.obstacle.y -= 30
+    }
+    else{
+      this.player.score+=5;
+      this.obstacle.y -= 40
+    }
+    if (this.player.y >= (this.obstacle.y - 80) && this.player.x == this.obstacle.x) {
+      if (this.player.y < this.obstacle.y + 80) {
+        window.alert("Você perdeu :( \nScore:"+(this.player.score));
+        location.reload();
+      }
+    }
+
+    if (this.player.y > (this.obstacle.y + 150)) {
+      this.obstacle.y = 1150
+      this.obstacle.x = this.obstacle.carPosition[Math.floor(Math.random()*this.obstacle.carPosition.length)]
+    }
+      //this.obstacle.y -= 30
+    }
+  }
+})
