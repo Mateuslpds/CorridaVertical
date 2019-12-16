@@ -63,3 +63,13 @@ button:hover {
 button:active {
   -webkit-transform: translate(0, 2px);
 }
+
+#game .player {
+  position: absolute;
+}
+
+#game .obstacle{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
