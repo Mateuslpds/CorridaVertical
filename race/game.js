@@ -10,5 +10,10 @@ let game = new Vue({
     frequency: 50,
     playerposition: 0
   },
+  mounted: function() {
+    this.$el.focus()
+    setInterval(this.loop, 1000 / this.frequency)
+    this.obstacle.x = this.obstacle.carPosition[Math.floor(Math.random()*this.obstacle.carPosition.length)]
+  },
 
 })
