@@ -23,3 +23,35 @@ button{
   width: 25%;
   outline: none;
 }
+
+#game {
+  position: relative;
+  width: 766px;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(race/road.png);
+  background-size: 766px;
+  background-repeat: repeat-y;
+  background-position-y: 100px;
+  margin: auto;
+}
+
+#game .score {
+  margin: 0;
+  padding: 0;
+  width: 10vw;
+  height: 10vh;
+  position: absolute;
+  z-index: 1;
+  color: black;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 15px 50px;
+  background: linear-gradient(white, grey);
+  background-size: 100% 100%;
+}
