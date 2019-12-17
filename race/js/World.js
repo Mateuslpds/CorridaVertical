@@ -5,6 +5,7 @@ class World {
   viewport = null
   player = null
   obstacle = null
+  police = null
 
   constructor(window, w = window.width, h = window.height) {
     this.width = Math.min(window.innerWidth, w)
@@ -13,6 +14,7 @@ class World {
     this.setViewportFor(window)
     this.player = new Player(30, 30)
     this.obstacle = new Obstacle(20, 20)
+    this.police = new Police(20, 20)
   }
 
   setViewportFor(window) {
