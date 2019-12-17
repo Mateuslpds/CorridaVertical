@@ -7,7 +7,7 @@
   <script src="js/Element.js"></script>
   <script src="js/Player.js"></script>
   <script src="js/Obstacle.js"></script>
-  <script src="js/Hole.js"></script>
+  <script src="js/Police.js"></script>
   <script src="js/Viewport.js"></script>
   <script src="js/World.js"></script>
 
@@ -24,6 +24,7 @@
   <div class="world">
     <div class="player" v-bind:style="viewport.styleFor(player)"><img src="car.png" width="50px" height="100px"></div>
     <div class="obstacle" v-bind:style="viewport.styleFor(obstacle)"><img src="car2.png" width="50px" height="100px"></div>
+    <div class="police" v-bind:style="viewport.styleFor(police)"><img src="police.png" width="50px" height="100px"></div>
     <!--<div class="hole" v-bind:style="viewport.styleFor(hole)"></div>-->
   </div>
 </div>
