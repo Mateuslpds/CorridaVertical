@@ -6,7 +6,7 @@ let game = new Vue({
     world: world,
     player: world.player,
     obstacle: world.obstacle,
-    oil: world.oil,
+    police: world.police,
     viewport: world.viewport,
     frequency: 50,
     playerposition: 0
@@ -15,7 +15,7 @@ let game = new Vue({
     this.$el.focus()
     setInterval(this.loop, 1000 / this.frequency)
     this.obstacle.x = this.obstacle.carPosition[Math.floor(Math.random()*this.obstacle.carPosition.length)]
-    this.oil.x = this.oil.oilPosition[Math.floor(Math.random()*this.oil.oilPosition.length)]
+    this.police.x = this.police.policePosition[Math.floor(Math.random()*this.police.policePosition.length)]
   },
   methods: {
     keyup: function(evt) {
@@ -43,22 +43,22 @@ let game = new Vue({
     if (this.player.score < 1000) {
       this.player.score+=1;
       this.obstacle.y -= 20;
-      this.oil.y -= 20;
+      this.police.y -= 20;
     }
     else if (this.player.score < 5000) {
       this.player.score+=2;
       this.obstacle.y -= 25;
-      this.oil.y -= 25;
+      this.police.y -= 25;
     }
     else if(this.player.score < 10000){
       this.player.score+=3;
       this.obstacle.y -= 30;
-      this.oil.y -= 30;
+      this.police.y -= 30;
     }
     else{
       this.player.score+=5;
       this.obstacle.y -= 40;
-      this.oil.y -= 40;
+      this.police.y -= 40;
     }
     if (this.player.y >= (this.obstacle.y - 80) && this.player.x == this.obstacle.x ) {
       if (this.player.y < this.obstacle.y + 80) {
@@ -66,19 +66,19 @@ let game = new Vue({
         location.reload();
       }
     }
-    if (this.player.y >= (this.oil.y - 80) && this.player.x == this.oil.x ) {
-      if (this.player.y < this.oil.y + 80) {
+    if (this.player.y >= (this.police.y - 80) && this.player.x == this.police.x ) {
+      if (this.player.y < this.police.y + 80) {
         window.alert("Você perdeu :( \nScore:"+(this.player.score));
         location.reload();
       }
     }
 
 
-    if (this.player.y > (this.obstacle.y + 150) && this.player.y > (this.oil.y + 150)) {
+    if (this.player.y > (this.obstacle.y + 150) && this.player.y > (this.police.y + 150)) {
       this.obstacle.y = 1150
-      this.oil.y = 1650
+      this.police.y = 1650
       this.obstacle.x = this.obstacle.carPosition[Math.floor(Math.random()*this.obstacle.carPosition.length)]
-      this.oil.x = this.oil.oilPosition[Math.floor(Math.random()*this.oil.oilPosition.length)]
+      this.police.x = this.police.policePosition[Math.floor(Math.random()*this.police.policePosition.length)]
     }
       //this.obstacle.y -= 30
     }
