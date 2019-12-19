@@ -9,7 +9,8 @@ let game = new Vue({
     police: world.police,
     viewport: world.viewport,
     frequency: 50,
-    playerposition: 0
+    playerposition: 0,
+    scoreCorrection: 0
   },
   mounted: function() {
     this.$el.focus()
@@ -44,31 +45,35 @@ let game = new Vue({
       this.player.score+=1;
       this.obstacle.y -= 20;
       this.police.y -= 20;
+      scoreCorrection = 1;
     }
     else if (this.player.score < 5000) {
       this.player.score+=2;
       this.obstacle.y -= 25;
       this.police.y -= 25;
+      scoreCorrection = 2
     }
     else if(this.player.score < 10000){
       this.player.score+=3;
       this.obstacle.y -= 30;
       this.police.y -= 30;
+      scoreCorrection = 3
     }
     else{
       this.player.score+=5;
       this.obstacle.y -= 40;
       this.police.y -= 40;
+      scoreCorrection
     }
     if (this.player.y >= (this.obstacle.y - 80) && this.player.x == this.obstacle.x ) {
       if (this.player.y < this.obstacle.y + 80) {
-        window.alert("Você perdeu :( \nScore:"+(this.player.score));
+        window.alert("Você perdeu :( \nScore:"+(this.player.score - scoreCorrection));
         location.reload();
       }
     }
     if (this.player.y >= (this.police.y - 80) && this.player.x == this.police.x ) {
       if (this.player.y < this.police.y + 80) {
-        window.alert("Você perdeu :( \nScore:"+(this.player.score));
+        window.alert("Você perdeu :( \nScore:"+(this.player.score - scoreCorrection));
         location.reload();
       }
     }
