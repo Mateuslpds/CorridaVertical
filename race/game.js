@@ -51,19 +51,19 @@ let game = new Vue({
       this.player.score+=2;
       this.obstacle.y -= 25;
       this.police.y -= 25;
-      scoreCorrection = 2
+      scoreCorrection = 2;
     }
     else if(this.player.score < 10000){
       this.player.score+=3;
       this.obstacle.y -= 30;
       this.police.y -= 30;
-      scoreCorrection = 3
+      scoreCorrection = 3;
     }
     else{
       this.player.score+=5;
       this.obstacle.y -= 40;
       this.police.y -= 40;
-      scoreCorrection
+      scoreCorrection = 5;
     }
     if (this.player.y >= (this.obstacle.y - 80) && this.player.x == this.obstacle.x ) {
       if (this.player.y < this.obstacle.y + 80) {
